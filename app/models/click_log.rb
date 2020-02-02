@@ -1,0 +1,2 @@
+class ClickLog < ApplicationRecord
+end

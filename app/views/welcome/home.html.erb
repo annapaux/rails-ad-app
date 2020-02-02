@@ -1,0 +1,90 @@
+<div id="app" class="pushable">
+
+  <div class="ui sidebar inverted vertical menu visible fixed left">
+    <div class="ui logo item">
+      <b><i class="icon envelope green"></i>Messages</b>
+    </div>
+    <div class="item">
+      <div class="ui message green">
+        <b>Notifications</b>
+        <p> {{ notification }} </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui container pusher">
+    <div class="ui grid">
+
+      <div class="six wide column">
+        <div class="withpadding">
+          <div class="ui header">
+            All ads ({{ ads.length }} ads)
+          </div>
+
+          <div v-for="ad in sortedAds">
+            <div class="ui segment"
+              :style="{ 'background-color': ad.background}">
+
+              <div class="ui grid">
+                <div class="left floated six wide column">
+                  {{ ad.text }}
+                </div>
+
+                <div class="right floated six wide column">
+                  <i class="icon caret square up" alt="up-vote" v-on:click="vote($event, ad.id, 1)"></i>
+                  <i class="icon caret square down" alt="down-vote" v-on:click="vote($event, ad.id, -1)"></i>
+                  {{ ad.clicks }}
+                  <i class="icon trash" alt="delete" v-on:click="deleteAd($event, ad.id)"></i>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="six wide column">
+        <div class="withpadding">
+          <div class="ui header">
+            Create an ad
+          </div>
+          <div class="ui segment">
+              <form class="ui form" v-on:submit.prevent="createAd($event)">
+
+                <div class="field">
+                  <label>Choose a text</label>
+                  <input type="text"
+                         name="text_input"
+                         placeholder="Awesome!"
+                         required="true"
+                         v-model="ad.text"/>
+                </div>
+
+                <div class="field">
+                  <label>Choose a color</label>
+                  <select v-model="ad.background">
+                    <option>red</option>
+                    <option>orange</option>
+                    <option>yellow</option>
+                    <option>pink</option>
+                    <option>purple</option>
+                    <option>blue</option>
+                  </select>
+                </div>
+
+                <button class="ui button green">
+                  Submit
+                </button>
+
+              </form>
+            </div>
+          </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+</div>
