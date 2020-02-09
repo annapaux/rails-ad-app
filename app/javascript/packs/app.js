@@ -9,9 +9,11 @@ document.addEventListener("DOMContentLoaded", () => {
     el: '#app',
     // data object
     data: {
-      notification: "Welcome to the ad space!",
+      message: "Welcome to the ad space!",
       ads: [],
-      ad: {}
+      ad: {},
+      showLogs: false
+      // logs: []
     },
     computed: {
       sortedAds: function() {
@@ -35,11 +37,18 @@ document.addEventListener("DOMContentLoaded", () => {
             app.ads = response
           }
         )
+
+        Api.listLogs().then(
+          function(response) {
+            app.logs = response
+            console.log('app logs', app.logs)
+          }
+        )
       },
 
       clear: function(){
         this.ad = {}
-        this.notification = ""
+        this.message = ""
         console.log('cleared')
       },
 
@@ -50,7 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log('RESPONSE', response)
           app.listAds();
           app.clear();
-          app.notification = `Ad ${response.id} created.`
+          app.message = `Ad ${response.id} created.`
+
+          let id = response.id
+          let action = 'create'
+          let vote = 0
+          Api.logActivity(id, action, vote)
+
         })
 
       },
@@ -67,10 +82,11 @@ document.addEventListener("DOMContentLoaded", () => {
         Api.vote(ad).then(function(response){
           app.listAds();
           app.clear();
-          app.notification = `Ad ${response.id} has new vote.`
+          app.message = `Ad ${response.id} has new vote.`
         })
 
-        Api.log_click(id, vote)
+        let action = 'vote'
+        Api.logActivity(id, action, vote)
       },
 
       deleteAd: function(event, id) {
@@ -81,10 +97,15 @@ document.addEventListener("DOMContentLoaded", () => {
           Api.deleteAd(id)
             .then(function(response){
               app.$delete(app.ads, adIndex)
-              app.notification = `Ad ${id} deleted.`
+              app.message = `Ad ${id} deleted.`
             });
         }
+
+        let action = 'delete'
+        let vote = 0
+        Api.logActivity(id, action, vote)
       }
+
     },
     beforeMount() {
       console.log('beforeMount, adding data')

@@ -12,6 +12,7 @@ export function createAd (ad) {
   console.log('local Ad', localAd)
   return axios.post('/ads.json', localAd)
     .then(function (response) {
+      console.log('createAd response', response)
       return response.data;
     })
     .catch(function (error){
@@ -37,24 +38,15 @@ export function vote (ad) {
     })
 }
 
-export function log_click (adId, vote) {
-  console.log('log click for ad', adId)
-
+export function logActivity (adId, action, vote) {
   var userId = Number(document.cookie.slice(-1))
-  console.log('log click for userid ', userId)
-
-  var clickLog = {user_id: userId,
+  var activityLog = {user_id: userId,
                   ad_id: adId,
+                  action: action,
                   click: vote}
-  console.log('clickLog ', clickLog)
+  console.log('activity ', activityLog)
 
-
-  var clickLog = {user_id: 1,
-                  ad_id: 1,
-                  click: 1}
-  console.log('new clickLog ', clickLog)
-
-  axios.post('/click_logs.json', clickLog)
+  axios.post('/activity_logs.json', activityLog)
     .catch(function (error){
       console.log(error);
     })
@@ -69,4 +61,10 @@ export function deleteAd (ad_id) {
     .catch(function (error) {
       console.log(error);
     })
+}
+
+export function listLogs () {
+  return axios.get('/activity_logs.json').then(function(response){
+    return response.data;
+  })
 }
