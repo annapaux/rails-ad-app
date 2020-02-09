@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_09_182134) do
+ActiveRecord::Schema.define(version: 2020_02_09_221309) do
 
   create_table "activity_logs", force: :cascade do |t|
     t.integer "ad_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_02_09_182134) do
     t.integer "clicks", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "icon"
   end
 
   create_table "click_logs", force: :cascade do |t|

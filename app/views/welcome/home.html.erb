@@ -7,6 +7,8 @@
     <div class="item">
       <div class="ui message green">
         <b>Notifications</b>
+        <p> <i>Please disable your adblocker and
+              wait one second after submitting a request.</i> </p>
         <p> {{ message }} </p>
       </div>
     </div>
@@ -29,6 +31,15 @@
                   <div class="ui segment"
                     :style="{ 'background-color': ad.background}">
                     {{ ad.text }}
+                    <div v-if="ad.icon == 'coffee'">
+                      <i class=" icon coffee"></i>
+                    </div>
+                    <div v-if="ad.icon == 'paper plane'">
+                      <i class=" icon paper plane"></i>
+                    </div>
+                    <div v-if="ad.icon == 'handshake outline'">
+                      <i class=" icon handshake outline"></i>
+                    </div>
                   </div>
                 </div>
 
@@ -71,6 +82,15 @@
                     <option>pink</option>
                     <option>purple</option>
                     <option>blue</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label>Choose an icon</label>
+                  <select v-model="ad.icon">
+                    <option>coffee</option>
+                    <option>paper plane</option>
+                    <option>handshake outline</option>
                   </select>
                 </div>
 

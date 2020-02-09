@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
       ads: [],
       ad: {},
       showLogs: false
-      // logs: []
     },
     computed: {
       sortedAds: function() {
@@ -41,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
         Api.listLogs().then(
           function(response) {
             app.logs = response
-            console.log('app logs', app.logs)
           }
         )
       },

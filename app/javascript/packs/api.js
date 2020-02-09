@@ -8,7 +8,6 @@ export function listAds () {
 
 export function createAd (ad) {
   var localAd = ad;
-  // delete localAd.id;
   console.log('local Ad', localAd)
   return axios.post('/ads.json', localAd)
     .then(function (response) {
