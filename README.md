@@ -7,4 +7,4 @@ Rails version 5.2.3
 Bundler version 1.17.1
 
 
-You can check out the deployed app here: https://adrater.herokuapp.com/users
+You can check out the deployed app here: https://adrater.herokuapp.com
