@@ -12,7 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
       message: "Welcome to the ad space!",
       ads: [],
       ad: {},
-      showLogs: false
+      showLogs: false,
+      logsL []
     },
     computed: {
       sortedAds: function() {
