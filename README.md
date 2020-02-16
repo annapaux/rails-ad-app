@@ -7,6 +7,8 @@ This is a web app with basic CRUD operations using REST API. It uses Ruby on Rai
 
 You can check out the deployed app here: https://adrater.herokuapp.com
 
+![alt text](https://github.com/annapaux/rails-ad-app/blob/master/readme_picture.png)
+
 
 # Run the app locally
 The following scripts are guidelines more than instructions. I'm working on MacOS 10.14.3.
