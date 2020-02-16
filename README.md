@@ -9,16 +9,13 @@ You can check out the deployed app here: https://adrater.herokuapp.com
 
 
 # Run the app locally
-(The following scripts are guidelines more than instructions. I'm working on MacOS 10.14.3)
-Ruby version 2.5.3
-Rails version 5.2.3
-Bundler version 1.17.1
+The following scripts are guidelines more than instructions. I'm working on MacOS 10.14.3.
 
 ### Create a virtual environment
 ```
 python3 -m venv ad_venv
 ```
-### cd into the environment ruby, rails, bundler
+### cd into the environment and install ruby, rails, bundler
 Note: You should install Ruby before
 ```
 rbenv install 2.5.3
@@ -87,9 +84,9 @@ Currently everyone who creates an account has equal rights to edit all ads. This
 ### Resources
 Resources I found helpful along the way:
 
-Rails & VueJS intro: https://www.udemy.com/course/ruby-on-rails-react-angular/
-class bindings: https://reactgo.com/vuejs-class-style-bindings-tutorial/
-vue js form input bindings: https://vuejs.org/v2/guide/forms.html
-semantic ui icons: https://semantic-ui.com/elements/icon.html#users--people
-authorization: https://gist.github.com/thebucknerlife/10090014
-cookies/ session in javascript: https://stackoverflow.com/questions/29737384/accessing-current-user-variable-from-application-js-in-rails-3
+- Rails & VueJS intro: https://www.udemy.com/course/ruby-on-rails-react-angular/
+- class bindings: https://reactgo.com/vuejs-class-style-bindings-tutorial/
+- vue js form input bindings: https://vuejs.org/v2/guide/forms.html
+- semantic ui icons: https://semantic-ui.com/elements/icon.html#users--people
+- authorization: https://gist.github.com/thebucknerlife/10090014
+- cookies/ session in javascript: https://stackoverflow.com/questions/29737384/accessing-current-user-variable-from-application-js-in-rails-3
