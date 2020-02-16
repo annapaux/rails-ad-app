@@ -1,5 +1,4 @@
 # Welcome!
-Anna Pauxberger, 16 February 2020
 
 Want to know how well your ads are working? Testing features individually is the way to go. This app aims to be a tiny version of a minimum viable product of a product that does exactly that - Marpipe (https://www.marpipe.com/).
 
@@ -11,13 +10,9 @@ You can check out the deployed app here: https://adrater.herokuapp.com
 
 
 # Run the app locally
-The following scripts are guidelines more than instructions. I'm working on MacOS 10.14.3.
+Here are some pointers to help you set it up. (MacOS 10.14.3.)
 
-### Create a virtual environment
-```
-python3 -m venv ad_venv
-```
-### cd into the environment and install ruby, rails, bundler
+### activate the environment and install ruby, rails, bundler
 Note: You should install Ruby before
 ```
 rbenv install 2.5.3
@@ -74,13 +69,19 @@ Deployment:
 The app is deployed using Heroku (the free version though, so it will break easily).
 
 
-
 ### Other
 If you inspect the website, you can see extensive logs in the console. This should provide some visibility to what is happening on the backend. Probably should be changed for a production version.
 
 The user authentication is also incredibly simple right now, with no verification for email address for example. Also space for improvement here.
 
 Currently everyone who creates an account has equal rights to edit all ads. This requires trust among the users since one could delete all ads of all others. E.g. delete rights could be restricted to authors in a future version.
+
+
+### Key Files 
+- `app/views/welcome/home.html.erb` --> main page HTML code (shows ads etc.)
+- `app/javascript/packs/app.js` --> main VueJS file that contains the app variable referenced in the `home.html.erb` file
+- `app/javascript/packs/api.js` --> functions for API calls referenced in `app.js` file
+-  `db/schema.rb` --> contains schema for database
 
 
 ### Resources
