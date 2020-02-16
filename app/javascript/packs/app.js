@@ -13,7 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
       ads: [],
       ad: {},
       showLogs: false,
-      logsL []
+      logs: [],
+      showAnalytics: false
     },
     computed: {
       sortedAds: function() {
@@ -24,8 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
             return -1;
           return 0;
         }
-        console.log(`Sorted ads ${this.ads.sort(compare)} `)
-        return this.ads.sort(compare);
+        console.log(`Sorted ads ${this.ads.sort(this.compare)} `)
+        return this.ads.sort(this.compare);
+      },
+
+      bestAd: function() {
+        let bestAd = this.sortedAds[0]
+        console.log(`bestAd ${bestAd.text} ${bestAd.background} ${bestAd.icon}`)
+        // this.bestAd = bestAd
+        return bestAd
       }
     },
     methods: {

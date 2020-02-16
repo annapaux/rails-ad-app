@@ -48,6 +48,7 @@
                   <i class="icon caret square down" alt="down-vote" v-on:click="vote($event, ad.id, -1)"></i>
                   {{ ad.clicks }}
                   <i class="icon trash" alt="delete" v-on:click="deleteAd($event, ad.id)"></i>
+                  <p>Ad #{{ ad.id }} </p>
                 </div>
               </div>
 
@@ -102,13 +103,41 @@
             </div>
           </div>
 
+
+          <div class="withpadding">
+            View Analytics
+            <input type="checkbox" v-model="showAnalytics">
+
+            <div v-if="showAnalytics">
+                <table>
+                  <thead align='left'>
+                    <tr>
+                      <th>Category</th>
+                      <th>Best</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Text</td>
+                      <td>{{ bestAd.text }}</td>
+                    </tr>
+                    <tr>
+                      <td>Background</td>
+                      <td>{{ bestAd.background }}</td>
+                    </tr>
+                    <tr>
+                      <td>Icon</td>
+                      <td>{{ bestAd.icon }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+
           <div class="withpadding">
             View Logs
             <input type="checkbox" v-model="showLogs">
 
             <div v-if="showLogs">
-              <!-- <div v-for="log in logs"> -->
-                <!-- {{ log.action }} -->
                 <table>
                   <thead>
                     <tr>
@@ -129,7 +158,6 @@
                     </tr>
                   </tbody>
                 </table>
-              <!-- </div> -->
             </div>
 
           </div>
