@@ -25,8 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return -1;
           return 0;
         }
-        console.log(`Sorted ads ${this.ads.sort(this.compare)} `)
-        return this.ads.sort(this.compare);
+        console.log(`Sorted ads ${this.ads.sort(compare)} `)
+        return this.ads.sort(compare);
       },
 
       bestAd: function() {
